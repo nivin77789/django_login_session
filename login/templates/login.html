@@ -125,19 +125,19 @@ button{
     <form method="post">
         <h3>Login Here</h3>
         {% csrf_token %}
+
+        {% if messages %}
+            {% for message in messages %}
+                <p style="color: red;">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
         <label for="username">Username</label>
         <input type="text" placeholder="Enter Username" id="username" name="username">
     
         <label for="password">Password</label>
         <input type="password" placeholder="Password" id="password" name="password">
 
-        {% comment %} {% if messages %}
-        <ul class="messages">
-          {% for message in messages %}
-            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-          {% endfor %} 
-        </ul>
-      {% endif %} {% endcomment %}
+     
 
         <button type="submit">Log In</button>
       

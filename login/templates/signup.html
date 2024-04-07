@@ -126,7 +126,11 @@ button{
     <form action="" method="post">
         {% csrf_token %} 
         <h3>Signup Here</h3>
-
+        {% if messages %}
+            {% for message in messages %}
+                <p style="color: red;">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
         <label for="username">Username</label>
         <input type="text" placeholder="Username" name="username" id="username">
 
@@ -137,8 +141,8 @@ button{
         <input type="password" placeholder="Password" id="password1" name="password1">
 
 
-        <label for="password2">Confrom Password</label>
-        <input type="password" placeholder="Confrom Password" id="password2" name="password2">
+        <label for="password2">Confirm Password</label> <!-- Corrected label -->
+<input type="password" placeholder="Confirm Password" id="password2" name="password2"> 
 
         {% comment %} {% if messages %}
   <ul class="messages">
