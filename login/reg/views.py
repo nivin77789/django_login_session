@@ -44,7 +44,7 @@ def signup(request):
         password1=request.POST['password1']
         password2=request.POST['password2']
         if password1!=password2:
-            messages.error(request, "Password is missmatching")
+            messages.error(request, "Password is mismatching")
         else:
             data=User.objects.create_user(username=username,email=email,password=password1)
             data.save()
